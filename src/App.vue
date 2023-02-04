@@ -14,8 +14,10 @@
         <div>
             <h2>Counter</h2>
             <h1>{{ count }}</h1>
-            <button @click="subtractFromCount()">-</button>
-            <button @click="addToCount()">+</button>
+            <van-space>
+                <van-button icon="plus" type="success" @click="addToCount()" />
+                <van-button icon="minus" type="danger" @click="subtractFromCount()" />
+            </van-space>
         </div>
     </main>
 </template>
@@ -28,9 +30,6 @@
         display: flex;
         align-items: center;
         justify-content: center;
-    }
-    
-    div {
         text-align: center;
     }
 </style>
