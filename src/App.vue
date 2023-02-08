@@ -1,25 +1,10 @@
 <script setup lang="ts">
-    import q from "./data/quizes.json";
-    import { ref, watch } from "vue";
-    import Card from "./components/Card.vue"
-    
-    const quizes = ref(q);
-    const search = ref("");
-    
-    watch(search, () => {
-        quizes.value = q.filter(quiz => quiz.name.toLowerCase().includes(search.value.toLowerCase()))
-    });
+    import { RouterView } from "vue-router";
 </script>
 
 <template>
-    <div class="container">
-            <header>
-                <h1>Quizes</h1>
-                <input type="text" placeholder="Search..." v-model.trim="search" />
-            </header>
-        <div class="cards-container">
-            <Card v-for="quiz in quizes" :key="quiz.id" :quiz="quiz" />
-        </div>
+    <div class="conatiner">
+        <RouterView />
     </div>
 </template>
 
@@ -28,29 +13,5 @@
         max-width: 1000px;
         margin: 0 auto;
         align-items: center;
-    }
-    
-    header {
-        margin-bottom: 10px;
-        margin-top: 30px;
-        display: flex;
-    }
-    
-    header h1 {
-        font-weight: bold;
-        margin-right: 50px;
-    }
-    
-    header input {
-        border: none;
-        background-color: rgba(128, 128, 128, 0.1);
-        padding: 10px;
-        border-radius: 10px;
-    }
-    
-    .cards-container {
-        display: flex;
-        flex-wrap: wrap;
-        margin-top: 40px;
     }
 </style>
