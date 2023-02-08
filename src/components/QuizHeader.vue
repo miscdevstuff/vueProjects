@@ -1,6 +1,4 @@
 <script setup lang="ts">
-    import { defineProps } from "vue";
-
     const { questionStatus, barPercentage } = defineProps(["barPercentage", "questionStatus"]);
 </script>
 
