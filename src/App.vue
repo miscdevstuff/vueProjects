@@ -1,12 +1,10 @@
 <script setup lang="ts">
-    import { ref } from "vue";
-    const count = ref(0);
-    const addToCount = () => {
-        count.value++;
-    };
-    const subtractFromCount = () => {
-        count.value--;
-    };
+    import { storeToRefs } from "pinia";
+    import { useCounterStore } from "./stores/counter";
+
+    const counterStore = useCounterStore();
+    const { count } = storeToRefs(counterStore);
+    const { decrement, increment } = counterStore;
 </script>
 
 <template>
@@ -18,8 +16,8 @@
                     <h1>{{ count }}</h1>
                 </div>
                 <van-space direction="horizontal">
-                    <van-button icon="minus" type="danger" @click="subtractFromCount()" />
-                    <van-button icon="plus" type="success" @click="addToCount()" />
+                    <van-button icon="minus" type="danger" @click="decrement()" />
+                    <van-button icon="plus" type="success" @click="increment()" />
                 </van-space>
             </div>
         </div>
@@ -35,13 +33,16 @@
         height: 100vh;
         align-items: center;
         justify-content: center;
+        margin: 0 auto;
     }
 
     .container {
+        display: flex;
+        flex-wrap: wrap;
         background-color: rgba(255, 255, 255, 0.1);
         height: 30%;
         width: 60%;
-        border-radius: 25px;
+        border-radius: 30px;
         align-items: center;
         justify-content: center;
         margin: 0 auto;
