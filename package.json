@@ -12,6 +12,7 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "@tsconfig/node20": "^1.0.1",
     "@vue/compiler-dom": "^3.3.4",
     "pinia": "^2.1.4",
     "vue": "^3.3.4",
